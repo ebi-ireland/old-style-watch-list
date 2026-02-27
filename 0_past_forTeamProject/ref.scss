@@ -1,0 +1,354 @@
+/**/
+
+
+
+/* Adjust kind of colours */
+$black: black;
+$white: white;
+$gray-light: gray;
+$gray-dark: gray;
+$blue-light: blue;
+$blue-dark: blue;
+$red: red;
+
+
+
+/* border */
+$border: 2px solid $gray-light;
+
+
+
+/* CSS Animation */
+$transition-01: transform 0.1s;
+$transition-03: transform 0.3s ease-in-out;
+
+
+
+/* Images */
+$logo: url("logoimages.png");
+$first-poster: url("guard.jpg"); /* demo only */
+$second-poster: url("movie2.jpg"); /* demo only */
+$usericon: url("usericon.jpg"); /* demo only */
+$good-empty: url("good_1.png");
+$good-white: url("good_white.png");
+$review: url("review_1.png");
+$saved-empty: url("saved_1.png");
+$saved-white: url("saved_white.png");
+$share: url("share_1.png");
+$previous: url("previous_1.png");
+$nex: url("next_1.png");
+$twitter: url("twitter.png");
+$facebook: url("facebook.png");
+$instagram: url("instagram.jpg");
+$whatApp: url("social.png");
+$edit: url("edit_orange.png");
+
+
+
+
+
+
+
+
+
+
+/* All of @mixin */
+@mixin html-base {
+    margin: 0;
+	padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: $black;
+}
+
+/* Reflect on All Pages */
+html, body {
+    @include html-base();
+}
+
+main {
+    @include html-base();
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+@mixin background-image($background-size) {
+    background-repeat: no-repeat;
+	background-position: center;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+/* Area */
+@mixin area-center ($width, $height, $position: absolute, $area-flex: true, $round: true){
+    position: $position;
+    top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    
+    @if $area-flex {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @if $round {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+}
+
+/* area (width, height)*/
+.main-area {
+    @include area-center(400px, 100%, $area-flex: false);
+}
+
+.subbox {
+    @include area-center(120px, 100%, $area-flex: false);
+}
+
+.description-area {
+    @include area-center(400px, 550px, $area-flex: false);
+    background-color: $white;
+    padding: 0px 0px 40px 0px;
+}
+
+.review-area {
+    @include area-center(400px, 500px);
+    margin: 0px 0px 0px 300px;
+    z-index: 1500;
+}
+
+@media(max-width:1300px) {
+    .review-area {
+        margin: 0px;
+        display: none;
+    }
+}
+
+.post-review-area,
+.post-review-area-2 {
+    @include area-center(500px, 550px);
+    background-color: $black;
+    z-index: 3000;
+}
+
+.report-area,
+.report-area-2 {
+    @include area-center(400px, 460px, $area-flex: false);
+    background-color: $white;
+    z-index: 2000;
+}
+
+.share-area {
+    @include area-center(450px, 320px, $area-flex: false);
+    background-color: $white;
+}
+
+.setting-area {
+    @include area-center(500px, 600px, $area-flex: false);
+    background-color: $black;
+    border: $border;
+}
+
+.saved-area {
+    @include area-center(500px, 80vh);
+    background-color: $white;
+}
+
+.details-area {
+    @include area-center(540px, 425px, $area-flex: false);
+    display: flex;
+    background-color: $white;
+    z-index: 1500;
+}
+
+.howtouse-area {
+    @include area-center(400px, 500px, $area-flex: false);
+    background-color: $white;
+}
+
+.log-out-area {
+    @include area-center(500px, 200px, $area-flex: false);
+    z-index: 2500;
+}
+
+.log-in-area {
+    @include area-center(350px, 550px, $area-flex: false);
+    background-color: $white;
+}
+
+/* Top in Main Panel */
+.main-foryou {
+    @include area-center(auto, auto, $round: false);
+    font-size: 3em;
+    color: $white;
+    margin: -250px 0px 0px 0px;
+}
+
+.main-usericon {
+    @include area-center(auto, auto, $area-flex: false, $round: false);
+    margin: -245px 0px 0px 125px;
+    z-index: 100;
+}
+
+.slider-container {
+    @include area-center(280px, 350px, $position: relative, $area-flex: false, $round: false);
+    border: $border;
+    cursor: grab;
+}
+
+
+
+
+.slider-container:active,
+.main-area-images:active {
+    cursor: grabbing;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Close Button "X" */
+@mixin close-button-base($top, $right) {
+    position: absolute;
+    top: $top;      
+    right: $right;  
+    width: 32px;
+    height: 32px;
+    opacity: 0.65;
+    background: none;
+    border: none;
+    cursor: pointer; 
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:before, &:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: rgba(0, 0, 0, 0.44); 
+    }
+
+    &:before {
+        transform: rotate(45deg);
+    }
+
+    &:after {
+        transform: rotate(-45deg);
+    }
+}
+
+%overlay-base {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: none; 
+    z-index: 2000;
+    overflow: hidden;
+
+    &.active {
+        display: block;
+    }
+}
+
+/* -close-button  (top, right) */
+.description-close-button,
+.post-review-close-button,
+.post-review-close-button-2,
+.share-close-button,
+.close-reviews {
+    @include close-button-base(32px, 45px);
+}
+
+.setting-close-button {
+    @include close-button-base(30px, 68px);
+}
+
+.report-close-button,
+.report-close-button,
+.saved-close-button,
+.howtouse-close-button {
+    @include close-button-base(35px, 60px);
+}
+
+.details-close-button {
+    @include close-button-base(10px, 20px);
+}
+
+
+
+
+
+
+
+
+
+
+/* CSS Animation for New Pannel Open and Close with Overlay */
+#description-area,
+#share-area,
+#setting-area,
+#report-area,
+#report-area-2,
+#logout-area,
+#saved-area,
+#details-area,
+#howtouse-area {
+    @extend %overlay-base;
+}
+
+@media(max-width: 1300px) {
+    #review-area {
+        @extend %overlay-base;
+        background: rgba(0,0,0,0.6); 
+        z-index: 1550; 
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* No library */
+a {
+    text-decoration: none;
+}

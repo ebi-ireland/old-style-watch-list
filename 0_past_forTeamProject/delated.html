@@ -1,0 +1,1270 @@
+<!--CSS script-->
+			<script>
+				var styles = `
+
+
+		/* Message from Yoshi */
+		/* Remove the panels you wish to view from here, and add the panels you wish to hide. */
+		#login-area, 
+		#changemail-area,
+		#create-password-area {
+			display: none;
+		}
+
+		/* Must add few pannels: Logout, Saved, HowToUse */
+		/ * Logout and HowToUse are relatively easy */
+
+
+
+		/* Main, reflect on all pages */
+		
+		.center {
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			gap: 15px;
+		}
+		h3 {
+			font-size: 1.2em;
+		}
+
+
+
+
+
+
+
+
+
+
+		/* Start Pannel */
+		#start-area {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100vh;
+			background-color: black; 
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 9999;
+			animation: panelExit 0s forwards 3s;
+		}
+		.start-logo {
+			width: 300px;  
+			height: 300px; 
+			/*--------------- INSERT LOGO IMAGES ---------------*/
+			background-image: url("file:///C:/Users/user/OneDrive/Desktop/0000_forTeamProject/logoimages.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			opacity: 0;
+			animation: logoFade 2.5s ease-in-out forwards;
+		}
+		@keyframes logoFade {
+			0%   { opacity: 0; }
+			30%  { opacity: 0; }
+			70%  { opacity: 1; } 
+			100%  { opacity: 1; } 
+		}
+		@keyframes panelExit {
+			to {
+				opacity: 0;
+				visibility: hidden;
+				pointer-events: none;
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+		/* Main Pannel */
+		.main-area-usericon .main-circle {
+			border: 2px solid gold;
+		}
+		.main-area-images {
+			position: absolute;
+		}
+
+
+		/* --------------- INSERT FILM POSTER OR IMAGES ---------------*/
+		.main-images {
+				transition: transform 0.3s ease-in-out;
+				background-image: url("guard.jpg");
+		}
+		.main-images-2 {
+				transition: transform 0.3s ease-in-out;
+				background-image: url("movie2.jpg");
+		}
+		.main-images, 
+		.main-images-2 {
+			width: 280px;
+			height: 350px;
+    		border-left: 1px solid #333;
+			background-size: cover;
+			background-position: center;
+			user-select: none;
+		}
+		.main-area-title {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+        	font-size: 1em;		
+			color: white;
+			margin-top: 220px;
+		}
+		.main-title {
+			z-index: 15;
+			color: white;
+			font-size: 1.5em;
+			font-weight: bold;
+		}
+		.main-area-circle-action-item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 5px;
+		}
+		.main-area-circle span {
+			color: white;
+			font-size: 0.9em;
+			font-weight: bold;
+		}
+		.main-area-descriptions {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 0.8em;
+			color: white;
+			margin-top: 260px;
+			margin-left: 10px;
+			width: 300px;
+		}
+		.main-descriptions {
+			padding: 5px;
+			color: white;
+		}
+		.main-descriptions-read-more {
+			cursor: pointer;
+		}
+		.good {
+			background-image: url("good_1.png");
+			transition: transform 0.1s;
+		}
+		.good.active {
+			background-image: url("good_white.png");
+		}
+		.good:active {
+			transform: scale(1.2);
+		}
+		.reviews {
+			background-image: url("review_1.png");
+		}
+		.saved {
+			background-image: url("saved_1.png");
+			transition: transform 0.1s;
+		}
+		.saved.active {
+			background-image: url("saved_white.png");
+		}
+		.saved:active {
+			transform: scale(1.2);
+		}
+		.share {
+			background-image: url("share_1.png");
+		}
+		.previous {
+			background-image: url("previous_1.png");
+		}
+		.next {
+			background-image: url("next_1.png");
+		}
+
+
+		/* Subbox in Main Pannel */
+		.logo {
+			top: 0;
+			left: 0;
+			display: fixed;
+		}
+		/*--------------- INSERT LOGO IMAGES ---------------*/
+		.logo-image{
+			width: 80px;
+			height: 80px;
+			background-color: black;
+			margin-top: 30px;
+			margin-left: 20px;
+    		flex-shrink: 0;
+			background-image: url("file:///C:/Users/user/OneDrive/Desktop/0000_forTeamProject/logoimages.png");
+    		background-repeat: no-repeat;
+    		background-position: center;
+    		background-size: contain;
+			cursor: pointer;
+		}
+		.subbox-first{
+			margin-left: 200px;
+		}
+		.subbox .main-area-circle{
+			position: absolute;  
+			top: 50%;           
+			left: 50%;
+			transform: translate(-50%, -50%); 			   
+			display: flex;
+			flex-direction: column; 
+			gap: 20px;       
+			z-index: 20;
+			justify-content: center; 
+			align-items: center;
+			z-index: 50;
+		}
+		.main-circle {
+			width: 4em;
+			height: 4em;
+			border-radius: 50%;
+			flex-shrink: 0;
+			border: 2px solid white;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer; !important;
+			pointer-events: auto; !important;
+			z-index: 100;
+			background-position: center;  
+    		background-repeat: no-repeat;
+			background-size: 100% 100%;
+		}
+		.subbox-second{
+			margin-left: 300px;
+			z-index: 50;
+		}
+
+
+
+
+
+
+
+
+
+
+		/* Description Pannel */
+		.description-area-header {
+			margin: 30px;
+			border-bottom: 2px solid #333;
+			display: flex;
+			align-items: center;
+		}
+		.description-title {
+			padding-left: 20px;
+		}
+		.description-area-contents {
+			padding: 0px 40px;
+			overflow-y: auto;
+			flex: 1;
+		}
+
+		
+
+
+
+
+
+
+
+
+		/* Review Pannel */
+		/* Over 1300px */
+		.review-header {
+			margin: 30px 30px 0px 30px;
+			border-bottom: 2px solid #333;
+			display: flex;
+    		align-items: center;
+			flex-shrink: 0;
+			padding-bottom: 10px;
+		}
+		.review-title {
+			padding-left: 20px;
+			padding-right: 30px;
+		}
+		.review-count {
+			font-size: 1.4em;
+			font-weight: bold;
+		}
+		.review-post-button {
+			position: absolute;
+			right: 100px;
+			top: 33px;
+			width: 30px;
+			height: 30px;
+			opacity: 0.3;
+			background: none;      
+			border: none;          
+			outline: none;         
+			cursor: pointer;       
+			padding: 0;
+			cursor: pointer;
+		}
+		.review-post-button:hover {
+			opacity: 1;
+		}
+		.review-post-button:before,
+		.review-post-button:after {
+			position: absolute;
+			left: 15px;
+			content: '';
+			height: 33px;
+			width: 2px;
+			background-color: #333;
+		}
+		.review-post-button:before {
+			transform: rotate(0deg);
+		}
+		.review-post-button:after {
+			transform: rotate(90deg);
+		}
+		.review-area-content {
+			padding: 0px 40px;
+			overflow-x: hidden;
+			overflow-y: auto;
+			flex: 1;
+			height: 70%;
+		}
+		.review-user-comment-item {
+			margin: 10px 0px 20px 0px;
+			padding-bottom: 20px;
+		}
+		.review-user-info {
+			display: flex;
+			align-items: center;
+			margin-top: 20px;
+			margin-bottom: 10px;
+			width: 100%;
+		}
+		.review-usericon {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background-color: Blue;
+			margin-top: 5px;
+		}
+		.review-username {
+			margin-left: 15px;
+			font-weight: bold;
+		}
+		.review-report-trigger {
+			background: none;
+			border: none;
+			cursor: pointer;
+			padding: 5px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			width: 30px;
+			height: 30px;
+			margin-left: auto;
+		}
+		.icon-menu-dots::before {
+			content: '';
+			width: 4px;
+			height: 4px;
+			background-color: #666;
+			border-radius: 50%;
+			box-shadow: 0 -8px 0 #666, 0 8px 0 #666;
+		}
+		.review-report-trigger:hover {
+			background-color: rgba(0, 0, 0, 0.05);
+			border-radius: 50%;
+		}
+		.review-area-user-comment-text {
+		
+		}
+		.review-comment-text {
+			display: -webkit-box;
+  			-webkit-line-clamp: 3;
+  			-webkit-box-orient: vertical;
+  			overflow: hidden;
+  			transition: all 0.3s ease;
+		}
+		.review-comment-text.expanded {
+  			-webkit-line-clamp: unset;
+		}
+		.review-read-more-btn {
+			background: none;
+			border: none;
+			color: black;
+			cursor: pointer;
+			padding: 0;
+			margin-top: 5px;
+		}
+		.review-read-more-btn.hidden {
+  			display: none;
+		}
+		
+
+
+
+
+		
+
+
+
+
+
+
+		/* Post Review Pannel */
+		.post-review-header {
+			margin: 30px 30px 0px 30px;
+			display: flex;
+			align-items: center;
+			flex-shrink: 0;
+			padding-bottom: 10px;
+			color: white;
+		}
+		.post-area-text {
+			padding: 0px 40px;
+			overflow-x: hidden;
+			overflow-y: auto;
+			flex: 1;
+			height: 70%;
+		}
+		.post-area-text textarea {
+			width: 100%;
+			height: 320px;
+			resize: none;
+			padding: 10px;
+			font-size: 1em;
+			margin-top: 10px;
+			background-color: black;
+			color: white;
+			font-size: 1em;
+			border: 2px solid #333;
+			border-radius: 5px;
+		}
+		.post-area-submit-button {
+			width: 100px;
+			height: 40px;
+			margin: 20px;
+			border-radius: 5px;
+			align-self: flex-end;
+			cursor: pointer;
+			background-color: #66FFE6;
+			transition: background-color 0.3s;
+		}
+		.post-area-submit-button:hover {
+			background-color: blue;
+		}
+
+
+
+
+
+
+
+
+
+		/*Report Pannel*/
+		.report-header,
+		.report-header-2 {
+			padding-left: 20px;
+			margin: 30px;
+			border-bottom: 2px solid #333;
+			display: flex;
+			align-items: center;
+		}
+		.report-reasons,
+		.report-reasons-2 {
+			padding-top: 20px;
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+		.reason-button,
+		.reason-button-2 {
+			width: 100%;
+			height: 40px;
+			margin-bottom: 30px;
+			border-radius: 5px;
+		}
+		.reason-button:hover,
+		.reason-button-2:hover {
+			background-color: lightgray;
+			cursor: pointer;
+		}
+
+
+
+
+
+
+
+
+
+		/*Share Pannel*/
+		.share-area-header {
+			margin: 30px;
+			border-bottom: 2px solid #333;
+		}
+		.share-title {
+			padding-left: 20px;
+		}
+		
+		.share-area-contents {
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+		}
+		.share-circle {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			background-color: white;
+			display: inline-block;
+			margin: 20px;
+			background-size: 100% 100%;  
+			background-position: center;  
+			background-repeat: no-repeat;
+		}
+		.sns-icon {
+		
+		}
+		.copylink {
+			padding: 40px;
+		}
+		.twitter {
+			background-image: url("twitter.png");
+		}
+		.faecbook {
+			background-image: url("facebook.png");
+		}
+		.instagram {
+			background-image: url("instagram.jpg");
+		}
+		.whatsapp {
+			background-image: url("social.png");
+		}
+
+
+
+
+
+
+
+
+
+		/*Setting Pannel*/
+		.setting-area-header {
+			width: 100%;
+			height: 150px;
+			margin-top: 30px;
+			padding: 30px;
+			display: flex;
+		}
+		.setting-area-icon {
+			position: relative;
+			margin-right: 30px;
+		}
+		.setting-usericon {
+			width: 80px;
+			height: 80px;
+			background-color: white;
+			border-radius: 50%;
+		}
+		.setting-area-username {
+			margin-top: 30px;
+		}
+		.setting-username {
+			color: white;
+		}
+		.edit-material {
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			background-color: yellow;
+			border-radius: 50%;
+			background-size: 130% 130%;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		.edit-usericon {
+			top: 45px;
+			left: 65px;
+			background-image: url("edit_orange.png");
+		}
+		.edit-username {
+			top: 105px;
+			left: 295px;
+			background-image: url("edit_orange.png");
+		}
+		.setting-area-menu {
+		 padding-left: 50px;
+		}
+		.setting-area-menu p {
+			color: white;
+			margin-bottom: 40px;
+		}
+		.setting-area-menu p:hover {
+			font-weight: bold;
+			cursor: pointer;
+			transition: 0.4s;
+		}
+		.setting-saved {
+		
+		}
+		.setting-howtouse {
+		
+		}
+		.setting-change-email {
+		
+		}
+		.setting-change-password {
+		
+		}
+		.setting-logout {
+		
+		}
+
+
+
+
+
+
+
+
+
+		/*Saved Movies Pannel*/
+		.saved-area-header {
+			margin: 30px;
+			border-bottom: 2px solid #333;
+			flex-shrink: 0;
+		}
+		.saved-title {
+			padding-left: 20px;
+		}
+		.saved-area-contents {
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			flex-wrap: wrap;
+			flex: 1 1 0;
+			overflow-y: auto;
+			min-height: 0
+			padding-bottom: 7px;
+			margin-bottom: 7px;
+		}
+		.saved-card {
+			width: 160px;
+			height: 200px;
+			background-color: blue;
+			border: 1px solid yellow;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+		.saved-card {
+			width: 160px;
+			height: 200px;
+			background-color: blue;
+			border: 1px solid yellow;
+			box-sizing: border-box;
+			cursor: pointer;
+			position: relative; 
+		}
+		.saved-card-circle {
+			position: absolute;
+			bottom: 10px; 
+			right: 10px;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-size: 100% 100%;
+			background-position: center;  
+			background-repeat: no-repeat;
+			cursor: pointer;
+			background-image: url("saved_white.png");
+			transition: background-image 0.1s;
+		}
+		.saved-card-circle.active {
+			background-image: url("saved_1.png");
+		}
+		.saved-card-circle:active {
+			transform: scale(1.2);
+		}
+
+
+
+
+
+
+
+
+
+
+		/* Details Pannel of Saved Movies */
+		.details-left-box {
+			flex: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-right: 1px solid #333;
+			background-color: blue
+		}
+		/* --------------- INSERT MOVIE IMAGES OR POSTER ---------------*/
+		.details-left-card {
+			width: 340px;
+			height: 425px;
+			background-color: #65432170;
+		}
+		.details-right-box {
+			width: 300px;
+			height: 425px;
+		}
+		.details-right-header {
+			height: 70px;
+			margin: 10px;
+			border-bottom: 1px solid #333;
+		}
+		.details-right-title {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-weight: bold;
+			padding-left: 20px;
+		}
+		.details-right-review {
+			height: auto;
+			flex: 1;
+			overflow-y: auto;
+			margin: 10px 0px;
+			padding-bottom: 5px 5px 10px 5px;
+			height: 380%;
+		}
+		.details-user-comment-item {
+			margin: 10px 0px 20px 0px;
+			padding-bottom: 20px;
+		}
+		.details-user-info {
+			display: flex;
+			align-items: center;
+			margin-top: 20px;
+			margin-bottom: 10px;
+			width: 100%;
+		}
+		.details-usericon {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background-color: Blue;
+			margin-top: 5px;
+		}
+		.details-username {
+			margin-left: 15px;
+			font-weight: bold;
+		}
+		.details-report-trigger {
+			background: none;
+			border: none;
+			cursor: pointer;
+			padding: 5px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			width: 30px;
+			height: 30px;
+			margin-left: auto;
+		}
+		.details-report-trigger:hover {
+			background-color: rgba(0, 0, 0, 0.05);
+			border-radius: 50%;
+		}
+		.details-area-user-comment-text {
+		
+		}
+		.details-comment-text {
+			display: -webkit-box;
+  			-webkit-line-clamp: 3;
+  			-webkit-box-orient: vertical;
+  			overflow: hidden;
+  			transition: all 0.3s ease;
+		}
+		.details-comment-text.expanded {
+  			-webkit-line-clamp: unset;
+		}
+		.details-read-more-btn {
+			background: none;
+			border: none;
+			color: black;
+			cursor: pointer;
+			padding: 0;
+			margin-top: 5px;
+		}
+		.details-read-more-btn.hidden {
+  			display: none;
+		}
+		.details-area-post {
+			display: flex;
+			padding: 10px 5px 5px 5px;
+			border-top: 1px solid #333;
+			flex-shrink: 0;
+			align-items: center;
+		}
+		.details-like {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			border: 1px solid #333;
+			background-image: url("good_white.png");
+			background-size: 100% 100%;
+			margin-right: 10px;
+			transition: background-image 0.1s;
+			cursor: pointer;
+		}
+		.details-like.active {
+			background-image: url("good_1.png");
+		}
+		.details-like:active {
+			transform: scale(1.2);
+		}
+		.details-saved {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			border: 1px solid #333;
+			background-image: url("saved_white.png");
+			background-size: 100% 100%;
+			margin-left: 20px;
+			transition: background-image 0.1s;
+			cursor: pointer;
+		}
+		.details-saved.active {
+			background-image: url("saved_1.png");
+		}
+		.details-like:active {
+			transform: scale(1.2);
+		}
+		.details-post {
+			position: absolute;
+			right: 20px;
+			top: 360px;
+			width: 30px;
+			height: 30px;
+			opacity: 0.3;
+			background: none;      
+			border: none;          
+			outline: none;         
+			cursor: pointer;       
+			padding: 0;
+			cursor: pointer;
+		}
+		.details-post:hover {
+			opacity: 1;
+		}
+		.details-post:before,
+		.details-post:after {
+			position: absolute;
+			left: 15px;
+			content: '';
+			height: 33px;
+			width: 2px;
+			background-color: #333;
+		}
+		.details-post:before {
+			transform: rotate(0deg);
+		}
+		.details-post:after {
+			transform: rotate(90deg);
+		}
+
+
+
+
+
+
+
+
+
+		/* Post Review Pannel 2 */
+		.post-review-header-2 {
+			margin: 30px 30px 0px 30px;
+			display: flex;
+			align-items: center;
+			flex-shrink: 0;
+			padding-bottom: 10px;
+			color: white;
+		}
+		.post-area-text-2 {
+			padding: 0px 40px;
+			overflow-x: hidden;
+			overflow-y: auto;
+			flex: 1;
+			height: 70%;
+		}
+		.post-area-text-2 textarea {
+			width: 100%;
+			height: 320px;
+			resize: none;
+			padding: 10px;
+			font-size: 1em;
+			margin-top: 10px;
+			background-color: black;
+			color: white;
+			font-size: 1em;
+			border: 2px solid #333;
+			border-radius: 5px;
+		}
+		.post-area-submit-button-2 {
+			width: 100px;
+			height: 40px;
+			margin: 20px;
+			border-radius: 5px;
+			align-self: flex-end;
+			cursor: pointer;
+			background-color: #66FFE6;
+			transition: background-color 0.3s;
+		}
+		.post-area-submit-button-2:hover {
+			background-color: blue;
+		}
+
+
+
+
+
+
+
+
+		/* HowToUse Pannel */
+		.howtouse-area-header {
+			margin: 30px;
+			border-bottom: 2px solid #333;
+			shrink: 0;
+			display: flex;
+		}
+		.howtouse-title {
+			padding-left: 20px;
+		}
+		.howtouse-area-contents {
+			padding: 0px 40px 40px;
+			margin-bottom: 20px;
+			overflow-y: auto;
+			flex: 1;
+			height: 60%;
+		}
+
+
+		
+		
+
+
+
+
+
+
+
+
+
+		/* Log Out Pannel */
+		.logout-title {
+			padding: 30px;
+		}
+		.logout-contents {
+			display: flex;
+			justify-content: center;
+			gap: 50px;
+		}
+		.logout-yes-button {
+			background-color: lightblue;
+			width: 80px;
+			height: 40px;
+		}
+		.logout-yes-button:hover {
+			background-color: deepskyblue;
+			cursor: pointer;
+		}
+		.logout-no-button {
+			background-color: lightgray;
+			width: 80px;
+			height: 40px;
+		}
+		.logout-no-button:hover {
+			background-color: gray;
+			cursor: pointer;
+		}
+
+
+
+
+
+
+
+
+
+		/*Login Pannel*/
+		.login-area-header {
+		
+		}
+		.login-header {
+			padding : 20px;
+		}
+		.login-area-contents {
+		
+		}
+		.login-google {
+		
+		}
+		.login-area-email {
+		
+		}
+		.login-fieldset {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			padding: 20px;
+		}
+		.login-submit-button {
+		
+		}
+		.login-area-subcontents {
+		
+		}
+		.login-register-account {
+		
+		}
+		.login-register-submit-button {
+		
+		}
+		.login-register-note {
+		
+		}
+		.login-forgot-password {
+		
+		}
+		.login-forgot-password-submit-button {
+			background-color: lightblue;
+		}
+		.login-forgot-password-submit-button:hover {
+			background-color: deepskyblue;
+			cursor: pointer;
+		}
+		.login-forgot-password-note {
+		
+		}
+
+
+
+
+
+
+
+
+
+
+		/*Change Registered Email Pannel*/
+		.changemail-area {
+			position: absolute;
+			width: 400px;
+			height: 400px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: #ffffff;
+		}
+		.changemail-area-header {
+			text-align: center;
+		}
+		.changemail-title {
+		
+		}
+		.changemail-area-contents {
+		
+		}
+		.changemail-fieldset {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			padding: 20px;
+			border: none;
+			border-color: transparent;
+		}
+		.changemail-submit-button {
+		
+		}
+		.changemail-notes {
+			text-align: center;
+		}
+
+
+
+
+
+
+
+		
+
+
+
+
+		/*Create Password Pannel*/
+		.create-password-area {
+			position: absolute;
+			width: 400px;
+			height: 400px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: #ffffff;
+		}
+		.create-password-title {
+			text-align: center;
+		}
+		.create-password {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			padding: 20px;
+			border: none;
+		}
+		.create-password-submit-button {
+			background-color: lightblue;
+		}
+		.create-password-submit-button:hover {
+			background-color: deepskyblue;
+			cursor: pointer;
+		}
+		.create-password-note {
+			text-align: center;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/* Webkit Scrollbar Customization */
+		.saved-area-contents::-webkit-scrollbar,
+		.description-area-contents::-webkit-scrollbar,
+		.review-area-content::-webkit-scrollbar,
+		.details-right-review::-webkit-scrollbar, {
+			width: 8px;
+		}
+		.saved-area-contents::-webkit-scrollbar-thumb,
+		.description-area-contents::-webkit-scrollbar-thumb,
+		.review-area-content::-webkit-scrollbar-thumb,
+		.details-right-review::-webkit-scrollbar-thumb {
+			background-color: #999; 
+			border-radius: 10px;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/* These css are animation for javascript */
+		/* These css are animation for javascript */
+		/* These css are animation for javascript */
+
+
+
+		/* Review Paneel Open and Close */
+		.main-area,
+		.subbox-first,
+		.subbox-second {
+			transition: transform 0.3s ease;
+		}
+		.main-area.shift-left {
+    		transform: translate(calc(-50% - 300px), -50%) !important;
+		}
+		.subbox-first.shift-left {
+    		transform: translate(calc(-50% -150px), -50%) !important;
+		}
+		.subbox-second.shift-left {
+    		transform: translate(cal(-50% -100px), -50%) !important;
+		}
+		.review-area {
+			display: none; 
+			z-index: 1500;
+		}
+		.review-area.show {
+    		display: block; 
+		}
+
+
+
+
+		/* Display Paneel of Share & Setting & Review Arew (Less than 1300px) & Logout & HowToUse */
+		.review-area.show {
+			display: block !important;
+			position: fixed !important;
+			top: 50% !important;
+			left: 50% !important;
+			transform: translate(-50%, -50%) !important; 
+			margin: 0 !important;
+			z-index: 5001;
+			width: 90%; 
+			max-width: 450px; 
+		}
+
+
+
+		/* Saved card animation */
+		.saved-card {
+    		transition: opacity 0.3s ease, transform 0.3s ease;
+		}
+		/* Undo button hover effect */
+		.undo-button:active {
+    		transform: scale(0.95);
+		}
+	}
+
+
+
+
+
+
+
+
+`
+
+				var styleSheet = document.createElement("style")
+				styleSheet.textContent = styles
+				document.head.appendChild(styleSheet)
+			</script>
