@@ -1,3 +1,4 @@
 # old-style-watch-list
 This is movie watch list that is mortified by Instagram Reel and You Tube Shorts, written by HTML, CSS, JavaScript
 index.html is main file in this repositry.
+Lecture: Team Project
